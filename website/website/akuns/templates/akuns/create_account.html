@@ -1,0 +1,65 @@
+{% extends 'base_layout.html' %}
+{%load static%}
+{% block stylecontent %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+        
+        body {
+            background-color: skyblue;
+        }
+        h2 {
+            font-family: 'Slabo 27px';
+            border-bottom: 1px solid black;
+            font-weight: 900;
+        }
+        form ul {
+            list-style: none;
+        }
+    </style>
+
+            
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <link rel="stylesheet" href="{%static "style_createakun.css"%}">
+{% endblock %}
+
+        
+{% block bodycontent %}    
+<div class="container">
+    <h1>Create New Akun</h1>
+    <form  action="/akuns/register/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Create New Account</button>
+    </form>
+        
+        <section>
+            <input type="checkbox" required> 
+            <small>By clicking "Create account" you agree to our  
+                <a href="#">Terms and Conditions</a>.</small>
+        </section>
+
+    <br>
+{% endblock %}
+
+{% block scriptcontent %}
+    <script>
+        $(".active").removeClass("active");
+        $("#nav-create").addClass("active");
+
+        $(".helptext").html("");
+
+        var input_text = $("input[type=text]");
+        input_text.addClass("form-control");
+
+        var input_pass = $("input[type=password]");
+        input_pass.addClass("form-control");
+
+        $("form ul li").addClass("btn btn-danger");
+
+        // var labels = $("label");
+
+        // labels.addClass("col");
+        // input_text.addClass("col")
+        // input_pass.addClass("col");
+    </script>
+{% endblock %}

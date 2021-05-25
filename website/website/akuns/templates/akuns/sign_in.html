@@ -1,0 +1,46 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block stylecontent %}
+    <style>
+        body {
+            background-color: aliceblue
+        }
+        
+        .foot {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }    
+    </style>
+    <link rel="stylesheet" href="{%static "style_login.css"%}">
+{% endblock %}
+
+
+{% block bodycontent%}
+{% csrf_token %}
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/akuns/login/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button>Log in</button>
+        </form>
+        <br>
+        <small class="row">
+            <a href="{% url 'akuns:signup' %}" class="col text-right">Create New Account</a>
+        </small>
+    </div>     
+{% endblock %}
+
+{% block scriptcontent %}
+    <script>
+        $( ".input" ).focusin(function() {
+        $( this ).find( "span" ).animate({"opacity":"0"}, 200);
+        });
+
+        $( ".input" ).focusout(function() {
+        $( this ).find( "span" ).animate({"opacity":"1"}, 300);
+        }); 
+    </script>
+{% endblock %}
