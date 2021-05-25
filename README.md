@@ -5,6 +5,7 @@ TUGAS BESAR :
 - Prodi : Teknik Informatika
 
 Ketua Kelompok : Apri Kurniawansyah (119140141)
+
 Anggota Kelompok :
 - Aprilia Purwanto (119140003)
 - Desi Fitria Yudanto (119140028)
